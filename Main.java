@@ -8,8 +8,16 @@ public class Main {
         link.addFirst(4);
         link.addFirst(5);
         System.out.println(link.size());
-        for (int i = 0; i < link.size();  i++){
-            System.out.println(link.last());
-        }
+
+        DoublyLinkedList<Integer> dlink = new DoublyLinkedList<>();
+        dlink.addLast(1);
+        dlink.addFirst(1142);
+        dlink.addLast(321);
+        dlink.addLast(51);
+        dlink.addLast(145);
+        dlink.removeFirst();
+        dlink.removeLast();
+        System.out.println(dlink.first());
+        System.out.println(dlink.last());
     }
 }
