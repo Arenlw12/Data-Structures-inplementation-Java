@@ -1,3 +1,5 @@
+package Stacks;
+import LinkedLists.LinkedList;
 public class LinkedStack<T> implements Stack<T> {
 
     private final LinkedList<T> list = new LinkedList<>();

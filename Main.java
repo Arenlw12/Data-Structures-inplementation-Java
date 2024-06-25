@@ -1,3 +1,9 @@
+import LinkedLists.DoublyLinkedList;
+import LinkedLists.LinkedList;
+import Queues.ArrayQueue;
+import Queues.Queue;
+import Stacks.ArrayStack;
+import Stacks.LinkedStack;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,7 +44,7 @@ public class Main {
             System.out.println(arrayStack.pop());
         }
 
-        //The test of Singly LinkedList based Stack
+        //The test of Singly Linked List based Stack
         System.out.println("__________________________________________________________________\n");
         LinkedStack<String> linkedStack = new LinkedStack<>();
         linkedStack.push("this");
@@ -46,5 +52,16 @@ public class Main {
         System.out.println(linkedStack.top());
         linkedStack.push("test");
         System.out.println(linkedStack.pop());
+
+        //The test of Array based Queue
+        System.out.println("__________________________________________________________________\n");
+        ArrayQueue<Integer> arrayQueue = new ArrayQueue<>(4);
+        arrayQueue.enqueue(1);
+        arrayQueue.enqueue(2);
+        arrayQueue.enqueue(3);
+        arrayQueue.enqueue(4);
+        System.out.println(arrayQueue.first());
+        arrayQueue.dequeue();
+        System.out.println(arrayQueue.first());
     }
 }

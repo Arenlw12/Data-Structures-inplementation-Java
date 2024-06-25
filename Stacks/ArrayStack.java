@@ -1,3 +1,5 @@
+package Stacks;
+
 public class ArrayStack<T> implements Stack<T> {
     private final T[] data;
     private int topElement = -1;
@@ -15,7 +17,7 @@ public class ArrayStack<T> implements Stack<T> {
     }
 
     public void push(T item) throws IllegalStateException {
-        if (size() == data.length) throw new IllegalStateException("Stack is full!");
+        if (size() == data.length) throw new IllegalStateException("Stacks.Stack is full!");
         data[++topElement] = item;
     }
 
