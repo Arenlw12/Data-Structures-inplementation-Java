@@ -73,13 +73,4 @@ public class LinkedList<T> {
             this.next = next;
         }
     }
-//    public T removeLast () {
-//        if (isEmpty()) return null;
-//        T output = tail.getElement();
-//        tail = tail.getNext();
-//        size--;
-//        if (size == 0)
-//            tail = null;
-//        return output;
-//    }
 }
