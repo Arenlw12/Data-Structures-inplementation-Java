@@ -4,6 +4,7 @@ import Queues.ArrayQueue;
 import Queues.Queue;
 import Stacks.ArrayStack;
 import Stacks.LinkedStack;
+import Trees.BinarySearchTree;
 
 public class Main {
     public static void main(String[] args) {
@@ -63,5 +64,28 @@ public class Main {
         System.out.println(arrayQueue.first());
         arrayQueue.dequeue();
         System.out.println(arrayQueue.first());
+
+        //The test of Binary Search Tree
+        System.out.println("__________________________________________________________________\n");
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.root = tree.insert(tree.root,10);
+        tree.insert(tree.root,20);
+        tree.insert(tree.root,0);
+        tree.insert(tree.root,5);
+        tree.insert(tree.root,12);
+
+        int key = 5;
+
+        if (tree.search(tree.root, key) == null)
+            System.out.println(key + " not found!");
+        else
+            System.out.println(key + " found!");
+
+        key = 0;
+
+        if (tree.search(tree.root, key) == null)
+            System.out.println(key + " not found!");
+        else
+            System.out.println(key + " found!");
     }
 }
