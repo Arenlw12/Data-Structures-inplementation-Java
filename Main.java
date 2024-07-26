@@ -1,10 +1,11 @@
 import LinkedLists.DoublyLinkedList;
 import LinkedLists.LinkedList;
+import Queues.ArrayDeque;
 import Queues.ArrayQueue;
-import Queues.Queue;
 import Stacks.ArrayStack;
 import Stacks.LinkedStack;
 import Trees.BinarySearchTree;
+import Trees.Heap.MaxHeap;
 
 public class Main {
     public static void main(String[] args) {
@@ -87,5 +88,34 @@ public class Main {
             System.out.println(key + " not found!");
         else
             System.out.println(key + " found!");
+
+        //The test of Maximum Heap
+        System.out.println("__________________________________________________________________\n");
+        MaxHeap maxHeap = new MaxHeap(11);
+
+        maxHeap.insert(1);
+        maxHeap.insert(10);
+        maxHeap.insert(12);
+        maxHeap.insert(21);
+        maxHeap.insert(41);
+        maxHeap.insert(100);
+        maxHeap.insert(11);
+
+        maxHeap.print();
+
+        //The test of Array Deque
+        System.out.println("__________________________________________________________________\n");
+        ArrayDeque<Integer> arrayDeque= new ArrayDeque<Integer>(5);
+        arrayDeque.addFirst(10);
+        arrayDeque.addFirst(123);
+        arrayDeque.addFirst(5);
+        arrayDeque.addLast(1);
+        System.out.println(arrayDeque.first());
+        System.out.println(arrayDeque.last());
+
+        arrayDeque.removeFirst();
+        arrayDeque.removeLast();
+        System.out.println("\n" + arrayDeque.first());
+        System.out.println(arrayDeque.last());
     }
 }
