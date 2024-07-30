@@ -1,3 +1,4 @@
+import Graphs.Graph;
 import LinkedLists.DoublyLinkedList;
 import LinkedLists.LinkedList;
 import Queues.ArrayQueue;
@@ -63,5 +64,19 @@ public class Main {
         System.out.println(arrayQueue.first());
         arrayQueue.dequeue();
         System.out.println(arrayQueue.first());
+
+        //The test of Graphs
+        System.out.println("__________________________________________________________________\n");
+        Graph<String> graph = new Graph<>();
+        graph.addEdge("A", "B", true);
+        graph.addEdge("B", "D", true);
+        graph.addEdge("C", "V", true);
+        graph.addEdge("C", "G", true);
+        System.out.println("Graph:\n" + graph.toString());
+        graph.getVertexCount();
+        graph.getEdgesCount(true);
+        graph.hasEdge("C", "D");
+        graph.hasVertex("F");
+        graph.neighbours("C");
     }
 }
