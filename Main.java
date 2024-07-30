@@ -1,10 +1,12 @@
 import Graphs.Graph;
 import LinkedLists.DoublyLinkedList;
 import LinkedLists.LinkedList;
+import Queues.ArrayDeque;
 import Queues.ArrayQueue;
-import Queues.Queue;
 import Stacks.ArrayStack;
 import Stacks.LinkedStack;
+import Trees.BinarySearchTree;
+import Trees.Heap.MaxHeap;
 
 public class Main {
     public static void main(String[] args) {
@@ -65,7 +67,7 @@ public class Main {
         arrayQueue.dequeue();
         System.out.println(arrayQueue.first());
 
-        //The test of Graphs
+       //The test of Graphs
         System.out.println("__________________________________________________________________\n");
         Graph<String> graph = new Graph<>();
         graph.addEdge("A", "B", true);
@@ -78,5 +80,57 @@ public class Main {
         graph.hasEdge("C", "D");
         graph.hasVertex("F");
         graph.neighbours("C");
+
+        //The test of Binary Search Tree
+        System.out.println("__________________________________________________________________\n");
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.root = tree.insert(tree.root,10);
+        tree.insert(tree.root,20);
+        tree.insert(tree.root,0);
+        tree.insert(tree.root,5);
+        tree.insert(tree.root,12);
+
+        int key = 5;
+
+        if (tree.search(tree.root, key) == null)
+            System.out.println(key + " not found!");
+        else
+            System.out.println(key + " found!");
+
+        key = 0;
+
+        if (tree.search(tree.root, key) == null)
+            System.out.println(key + " not found!");
+        else
+            System.out.println(key + " found!");
+
+        //The test of Maximum Heap
+        System.out.println("__________________________________________________________________\n");
+        MaxHeap maxHeap = new MaxHeap(11);
+
+        maxHeap.insert(1);
+        maxHeap.insert(10);
+        maxHeap.insert(12);
+        maxHeap.insert(21);
+        maxHeap.insert(41);
+        maxHeap.insert(100);
+        maxHeap.insert(11);
+
+        maxHeap.print();
+
+        //The test of Array Deque
+        System.out.println("__________________________________________________________________\n");
+        ArrayDeque<Integer> arrayDeque= new ArrayDeque<Integer>(5);
+        arrayDeque.addFirst(10);
+        arrayDeque.addFirst(123);
+        arrayDeque.addFirst(5);
+        arrayDeque.addLast(1);
+        System.out.println(arrayDeque.first());
+        System.out.println(arrayDeque.last());
+
+        arrayDeque.removeFirst();
+        arrayDeque.removeLast();
+        System.out.println("\n" + arrayDeque.first());
+        System.out.println(arrayDeque.last());
     }
 }
