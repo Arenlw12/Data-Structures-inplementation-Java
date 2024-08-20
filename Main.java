@@ -1,5 +1,7 @@
 import LinkedLists.DoublyLinkedList;
 import LinkedLists.LinkedList;
+import PositionalList.LinkedPositionList;
+import PositionalList.Position;
 import Queues.ArrayDeque;
 import Queues.ArrayQueue;
 import Stacks.ArrayStack;
@@ -117,5 +119,20 @@ public class Main {
         arrayDeque.removeLast();
         System.out.println("\n" + arrayDeque.first());
         System.out.println(arrayDeque.last());
+
+        //The test of Linked Position List
+        System.out.println("__________________________________________________________________\n");
+        LinkedPositionList<String> linkedPositionList = new LinkedPositionList<String>();
+        Position<String> p1 = linkedPositionList.addFirst("A");
+        Position<String> p2 = linkedPositionList.addLast("B");
+        Position<String> p3 = linkedPositionList.addAfter(p1, "C");
+        System.out.println(linkedPositionList.first().getElement());
+        System.out.println(linkedPositionList.after(p1).getElement());
+        linkedPositionList.remove(p3);
+        System.out.println(linkedPositionList.last().getElement());
+        Position<String> p4 = linkedPositionList.addLast("D");
+        System.out.println(linkedPositionList.before(linkedPositionList.last()).getElement());
+        System.out.println(linkedPositionList.set(p1,"ABC"));
+        System.out.println(linkedPositionList.first().getElement());
     }
 }
