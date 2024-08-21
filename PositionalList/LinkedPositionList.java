@@ -1,5 +1,9 @@
 package PositionalList;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.function.Consumer;
+
 public class LinkedPositionList<T> implements PositionalLists<T> {
     private final Node<T> header;
     private final Node<T> trailer;
@@ -109,6 +113,65 @@ public class LinkedPositionList<T> implements PositionalLists<T> {
         return answer;
     }
 
+    private class PositionIterator implements Iterator<Position<T>> {
+        private Position<T> cursor = first();
+        private Position<T> recent = null;
+        @Override
+        public boolean hasNext() {
+            return cursor != null;
+        }
+
+        @Override
+        public Position<T> next() throws NoSuchElementException {
+           if (cursor == null)
+               throw new NoSuchElementException("nothing left");
+           recent = cursor;
+           cursor = after(cursor);
+           return recent;
+        }
+
+        @Override
+        public void remove()  throws IllegalStateException{
+            if (recent == null)
+                throw new IllegalStateException("nothing to remove");
+            LinkedPositionList.this.remove(recent);
+            recent = null;
+        }
+    }
+
+    private class PositionIterable implements Iterable<Position<T>> {
+
+        @Override
+        public Iterator<Position<T>> iterator() {
+            return new PositionIterator();
+        }
+
+        public Iterable<Position<T>> positions() {
+            return new PositionIterable();
+        }
+    }
+
+    private class ElementIterator implements Iterator<T> {
+        Iterator<Position<T>> positionIterator = new PositionIterator();
+        @Override
+        public boolean hasNext() {
+            return positionIterator.hasNext();
+        }
+
+        @Override
+        public T next() {
+            return positionIterator.next().getElement();
+        }
+
+        @Override
+        public void remove() {
+            positionIterator.remove();
+        }
+    }
+
+    public Iterator<T> iterator() {
+        return new ElementIterator();
+    }
 
     public static class Node<T> implements Position<T> {
         private T element;

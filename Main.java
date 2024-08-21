@@ -10,6 +10,8 @@ import Stacks.LinkedStack;
 import Trees.BinarySearchTree;
 import Trees.Heap.MaxHeap;
 
+import java.util.Iterator;
+
 public class Main {
     public static void main(String[] args) {
         //The test of Singly Linked List
@@ -149,5 +151,24 @@ public class Main {
         System.out.println(linkedPositionList.before(linkedPositionList.last()).getElement());
         System.out.println(linkedPositionList.set(p1,"ABC"));
         System.out.println(linkedPositionList.first().getElement());
+
+        //The test of Iterator
+        System.out.println("*******************************************************************\n");
+        java.util.LinkedList<String> linkedList =  new java.util.LinkedList<>();
+        linkedList.add("A");
+        linkedList.add("B");
+        linkedList.add("C");
+        linkedList.add("D");
+        linkedList.add("E");
+        linkedList.add("F");
+        Iterator<String> iter = linkedList.iterator();
+        while (iter.hasNext()) {
+            String variable = iter.next();
+            if (variable.equals("A"))
+                iter.remove();
+            else
+                System.out.println(variable);
+        }
+
     }
 }
